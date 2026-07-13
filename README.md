@@ -30,7 +30,7 @@ Um sistema interativo de gerenciamento de contatos via console, desenvolvido int
    ```bash
    git clone [https://github.com/matheuslevicarmo99/MyContacts---Projeto-Modulo-Basico-Capacita.git](https://github.com/matheuslevicarmo99/MyContacts---Projeto-Modulo-Basico-Capacita.git)
 
-   Abra o projeto na sua IDE de preferência (recomendamos o IntelliJ IDEA).
+   Abra o projeto na sua IDE de preferência (recomendado o IntelliJ IDEA).
 
 2. Localize o arquivo principal de execução no seguinte caminho: src/mycontacts/app/Main.java.
 
