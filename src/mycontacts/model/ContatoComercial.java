@@ -18,10 +18,11 @@ public class ContatoComercial extends Contato{
 
     @Override
     public String toString() {
-        return "\nContatoComercial{" + "Nome= " + getNome() +
-                ", Telefone= " + getTelefone() +
-                ", Email= " + getEmail() +
-                "Empresa= " + empresa +
-                '}';
+        return "\n[ Contato Comercial ]" +
+                "\nNome: " + getNome() +
+                "\nTelefone: " + getTelefone() +
+                "\nE-mail: " + getEmail() +
+                "\nEmpresa: " + empresa +
+                "\n--------------------------------";
     }
 }

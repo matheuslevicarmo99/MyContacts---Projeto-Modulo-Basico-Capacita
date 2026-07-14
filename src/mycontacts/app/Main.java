@@ -93,7 +93,6 @@ public class Main{
                 }
 
             } else if (acao == 2) {
-                System.out.println("Apresentando Lista de contatos:");
                 agenda.listarContatos();
 
             } else if (acao == 3) {

@@ -39,11 +39,12 @@ public class Contato{
     }
 
 
+    @Override
     public String toString() {
-        return "\nContato{" +
-                "Nome= " + nome +
-                ", Telefone= " + telefone +
-                ", Email= " + email +
-                '}';
+        return "\n[ Contato Padrão ]" +
+                "\nNome: " + nome +
+                "\nTelefone: " + telefone +
+                "\nE-mail: " + email +
+                "\n--------------------------------";
     }
 }

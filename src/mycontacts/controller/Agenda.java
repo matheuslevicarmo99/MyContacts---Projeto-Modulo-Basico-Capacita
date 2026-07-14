@@ -20,6 +20,7 @@ public class Agenda implements Buscavel{
     }
 
     public void listarContatos(){
+        System.out.println("==== LISTA DE CONTATOS ====");
         for(int i = 0; i < listaContatos.size(); i++){
             System.out.println(listaContatos.get(i));
         }
