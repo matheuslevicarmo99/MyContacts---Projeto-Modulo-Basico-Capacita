@@ -22,7 +22,6 @@ public class ContatoDAO implements RepositorioGenerico<Contato> {
             pstmt.setString(2, contato.getTelefone());
             pstmt.setString(3, contato.getEmail());
 
-            // Verifica se é um ContatoComercial para salvar a empresa
             if (contato instanceof ContatoComercial) {
                 ContatoComercial cc = (ContatoComercial) contato;
                 pstmt.setString(4, cc.getEmpresa());

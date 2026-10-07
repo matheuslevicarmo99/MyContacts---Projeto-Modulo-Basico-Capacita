@@ -7,10 +7,8 @@ import java.sql.Statement;
 
 public class Conexao {
 
-    // O caminho do arquivo do banco de dados que será gerado localmente
     private static final String URL = "jdbc:sqlite:agenda.db";
 
-    // Método que "abre a porta" para o banco de dados
     public static Connection conectar() {
         try {
             return DriverManager.getConnection(URL);
@@ -20,18 +18,16 @@ public class Conexao {
         }
     }
 
-    // Método que constrói a tabela (se ela ainda não existir)
     public static void criarTabela() {
         String sql = "CREATE TABLE IF NOT EXISTS contatos ("
                 + "id INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + "nome TEXT NOT NULL,"
                 + "telefone TEXT NOT NULL,"
                 + "email TEXT NOT NULL,"
-                + "empresa TEXT,"       // Ficará vazio para contatos padrão
-                + "tipo TEXT NOT NULL"  // Guardará "PADRAO" ou "COMERCIAL"
+                + "empresa TEXT,"
+                + "tipo TEXT NOT NULL"
                 + ");";
 
-        // O try-with-resources (com parênteses) fecha a conexão automaticamente após o uso
         try (Connection conn = conectar();
              Statement stmt = conn.createStatement()) {
 

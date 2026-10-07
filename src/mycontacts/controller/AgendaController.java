@@ -27,7 +27,6 @@ public class AgendaController {
 
     @FXML
     public void initialize() {
-        // Liga as colunas da tabela com os atributos da classe Contato
         colNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
         colTelefone.setCellValueFactory(new PropertyValueFactory<>("telefone"));
         colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
@@ -50,16 +49,14 @@ public class AgendaController {
                 contato = new Contato(nome, telefone, email);
             }
 
-            dao.inserir(contato); // Salva no banco de dados
+            dao.inserir(contato);
 
-            // Limpa os campos
             txtNome.clear(); txtTelefone.clear(); txtEmail.clear(); txtEmpresa.clear();
-            carregarContatos(); // Atualiza a tabela na tela
+            carregarContatos();
         }
     }
 
     public void carregarContatos() {
-        // Busca do banco e joga na tela
         ObservableList<Contato> contatos = FXCollections.observableArrayList(dao.listarTodos());
         tabelaContatos.setItems(contatos);
     }
