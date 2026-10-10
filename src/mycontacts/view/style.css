@@ -75,6 +75,6 @@
     -fx-background-color: #FFFFFF; /* Efeito zebrado (linhas pares) */
 }
 .tabela-estilizada .table-row-cell:selected {
-    -fx-background-color: #D6EAF8; /* Azul pastel ao selecionar uma linha */
-    -fx-text-fill: #2C3E50;
+    -fx-background-color: #3498DB;
+    -fx-text-background-color: white;
 }

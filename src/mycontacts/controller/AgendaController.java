@@ -1,9 +1,11 @@
 package mycontacts.controller;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -14,6 +16,9 @@ import mycontacts.model.Contato;
 import mycontacts.model.ContatoComercial;
 import mycontacts.utils.Validador;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class AgendaController {
 
     @FXML private TextField txtNome;
@@ -21,11 +26,13 @@ public class AgendaController {
     @FXML private TextField txtEmail;
     @FXML private TextField txtEmpresa;
     @FXML private TextField txtBusca;
+    @FXML private ComboBox<String> cbFiltro;
 
     @FXML private TableView<Contato> tabelaContatos;
     @FXML private TableColumn<Contato, String> colNome;
     @FXML private TableColumn<Contato, String> colTelefone;
     @FXML private TableColumn<Contato, String> colEmail;
+    @FXML private TableColumn<Contato, String> colEmpresa;
 
     private ContatoDAO dao = new ContatoDAO();
 
@@ -34,6 +41,15 @@ public class AgendaController {
         colNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
         colTelefone.setCellValueFactory(new PropertyValueFactory<>("telefone"));
         colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+
+        colEmpresa.setCellValueFactory(cellData -> {
+            if (cellData.getValue() instanceof ContatoComercial) {
+                return new SimpleStringProperty(((ContatoComercial) cellData.getValue()).getEmpresa());
+            } else {
+                return new SimpleStringProperty("Padrão");
+            }
+        });
+
         carregarContatos();
     }
 
@@ -73,9 +89,8 @@ public class AgendaController {
     public void carregarContatos() {
         ObservableList<Contato> contatos = FXCollections.observableArrayList(dao.listarTodos());
         tabelaContatos.setItems(contatos);
-        if (txtBusca != null) {
-            txtBusca.clear();
-        }
+        if (txtBusca != null) txtBusca.clear();
+        if (cbFiltro != null) cbFiltro.setValue("Todos");
     }
 
     @FXML
@@ -85,6 +100,23 @@ public class AgendaController {
             ObservableList<Contato> contatos = FXCollections.observableArrayList(dao.buscarPorNome(nomeBusca));
             tabelaContatos.setItems(contatos);
         }
+    }
+
+    @FXML
+    public void filtrarContatos() {
+        String filtro = cbFiltro.getValue();
+        List<Contato> todos = dao.listarTodos();
+        List<Contato> filtrados;
+
+        if (filtro.equals("Comercial")) {
+            filtrados = todos.stream().filter(c -> c instanceof ContatoComercial).collect(Collectors.toList());
+        } else if (filtro.equals("Padrão")) {
+            filtrados = todos.stream().filter(c -> !(c instanceof ContatoComercial)).collect(Collectors.toList());
+        } else {
+            filtrados = todos;
+        }
+
+        tabelaContatos.setItems(FXCollections.observableArrayList(filtrados));
     }
 
     @FXML

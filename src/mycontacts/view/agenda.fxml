@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
 
 <VBox spacing="15" alignment="CENTER" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mycontacts.controller.AgendaController" stylesheets="@style.css" styleClass="fundo-pastel">
 
@@ -15,8 +17,22 @@
     </HBox>
 
     <HBox spacing="10" alignment="CENTER">
-        <TextField fx:id="txtBusca" promptText="Buscar por nome..." prefWidth="250" styleClass="campo-texto" />
+        <TextField fx:id="txtBusca" promptText="Buscar por nome..." prefWidth="200" styleClass="campo-texto" />
         <Button text="Buscar" onAction="#buscarContato" styleClass="btn-buscar"/>
+
+        <ComboBox fx:id="cbFiltro" onAction="#filtrarContatos" styleClass="campo-texto">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Todos" />
+                    <String fx:value="Padrão" />
+                    <String fx:value="Comercial" />
+                </FXCollections>
+            </items>
+            <value>
+                <String fx:value="Todos" />
+            </value>
+        </ComboBox>
+
         <Button text="Mostrar Todos" onAction="#carregarContatos" styleClass="btn-neutro"/>
         <Button text="Remover Selecionado" onAction="#removerContato" styleClass="btn-remover"/>
     </HBox>
@@ -25,7 +41,8 @@
         <columns>
             <TableColumn fx:id="colNome" text="Nome" prefWidth="150" />
             <TableColumn fx:id="colTelefone" text="Telefone" prefWidth="120" />
-            <TableColumn fx:id="colEmail" text="E-mail" prefWidth="200" />
+            <TableColumn fx:id="colEmail" text="E-mail" prefWidth="180" />
+            <TableColumn fx:id="colEmpresa" text="Empresa / Tipo" prefWidth="150" />
         </columns>
     </TableView>
 </VBox>
