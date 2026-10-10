@@ -4,18 +4,15 @@ import mycontacts.exceptions.FormatoInvalidoException;
 
 public class Validador {
 
-
-    public static void validarEmail(String email){
-        if(!email.contains("@") || !email.contains(".")){
-            throw new FormatoInvalidoException("E-mail inválido! Deve conter @ e um domínio.");
+    public static void validarTelefone(String telefone) throws FormatoInvalidoException {
+        if (telefone == null || !telefone.matches("\\d{11}")) {
+            throw new FormatoInvalidoException("O telefone deve conter exatamente 11 números (DDD + 9 dígitos), sem espaços ou traços.");
         }
     }
 
-    public static void validarTelefone(String telefone){
-        if(telefone.length() < 10 || telefone.length() > 11){
-            throw new FormatoInvalidoException("Telefone inválido! Deve conter 11 números !");
-        } else if (!telefone.matches("[0-9]+")) {
-            throw new FormatoInvalidoException("Telefone Inválido ! Deve conter apenas números com o DDD");
+    public static void validarEmail(String email) throws FormatoInvalidoException {
+        if (email == null || !email.matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")) {
+            throw new FormatoInvalidoException("Formato de e-mail inválido. Verifique se contém '@' e '.com'.");
         }
     }
 }
