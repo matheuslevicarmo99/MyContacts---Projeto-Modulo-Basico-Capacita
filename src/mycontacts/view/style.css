@@ -1,0 +1,7 @@
+.button {
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+.table-view {
+    -fx-font-size: 14px;
+}

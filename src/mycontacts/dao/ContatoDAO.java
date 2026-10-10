@@ -88,4 +88,9 @@ public class ContatoDAO implements RepositorioGenerico<Contato> {
         }
         return new Contato(nome, telefone, email);
     }
+    public void inserirVarios(List<? extends Contato> entidades) {
+        for (Contato c : entidades) {
+            inserir(c);
+        }
+    }
 }
