@@ -2,25 +2,26 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox spacing="15" alignment="CENTER" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mycontacts.controller.AgendaController" stylesheets="@style.css" style="-fx-padding: 20px;">
-    <Label text="MyContacts - Agenda" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+<VBox spacing="15" alignment="CENTER" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mycontacts.controller.AgendaController" stylesheets="@style.css" styleClass="fundo-pastel">
+
+    <Label text="MyContacts - Agenda" styleClass="titulo"/>
 
     <HBox spacing="10" alignment="CENTER">
-        <TextField fx:id="txtNome" promptText="Nome" />
-        <TextField fx:id="txtTelefone" promptText="Telefone" />
-        <TextField fx:id="txtEmail" promptText="E-mail" />
-        <TextField fx:id="txtEmpresa" promptText="Empresa (Comercial)" />
-        <Button text="Adicionar" onAction="#adicionarContato" style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+        <TextField fx:id="txtNome" promptText="Nome" styleClass="campo-texto" />
+        <TextField fx:id="txtTelefone" promptText="Telefone" styleClass="campo-texto" />
+        <TextField fx:id="txtEmail" promptText="E-mail" styleClass="campo-texto" />
+        <TextField fx:id="txtEmpresa" promptText="Empresa (Comercial)" styleClass="campo-texto" />
+        <Button text="Adicionar" onAction="#adicionarContato" styleClass="btn-adicionar"/>
     </HBox>
 
     <HBox spacing="10" alignment="CENTER">
-        <TextField fx:id="txtBusca" promptText="Buscar por nome..." prefWidth="250" />
-        <Button text="Buscar" onAction="#buscarContato" style="-fx-background-color: #2196F3; -fx-text-fill: white;"/>
-        <Button text="Mostrar Todos" onAction="#carregarContatos" />
-        <Button text="Remover Selecionado" onAction="#removerContato" style="-fx-background-color: #F44336; -fx-text-fill: white;"/>
+        <TextField fx:id="txtBusca" promptText="Buscar por nome..." prefWidth="250" styleClass="campo-texto" />
+        <Button text="Buscar" onAction="#buscarContato" styleClass="btn-buscar"/>
+        <Button text="Mostrar Todos" onAction="#carregarContatos" styleClass="btn-neutro"/>
+        <Button text="Remover Selecionado" onAction="#removerContato" styleClass="btn-remover"/>
     </HBox>
 
-    <TableView fx:id="tabelaContatos" VBox.vgrow="ALWAYS">
+    <TableView fx:id="tabelaContatos" VBox.vgrow="ALWAYS" styleClass="tabela-estilizada">
         <columns>
             <TableColumn fx:id="colNome" text="Nome" prefWidth="150" />
             <TableColumn fx:id="colTelefone" text="Telefone" prefWidth="120" />

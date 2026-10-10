@@ -14,7 +14,7 @@ public class MainGUI extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/mycontacts/view/agenda.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 700, 450);
 
-        stage.setTitle("MyContacts - Interface Gráfica");
+        stage.setTitle("MyContacts - Agenda");
         stage.setScene(scene);
         stage.show();
     }

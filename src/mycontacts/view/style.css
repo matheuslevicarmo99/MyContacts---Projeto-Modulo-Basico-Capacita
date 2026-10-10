@@ -1,7 +1,80 @@
-.button {
-    -fx-font-weight: bold;
-    -fx-cursor: hand;
+/* Fundo da janela em tom pastel (bege/cinza muito claro) */
+.fundo-pastel {
+    -fx-background-color: #FDFBF7;
+    -fx-padding: 25px;
 }
-.table-view {
+
+/* Título principal */
+.titulo {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2C3E50; /* Azul escuro elegante */
+    -fx-font-family: "Segoe UI", sans-serif;
+}
+
+/* Campos de texto arredondados e suaves */
+.campo-texto {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #D5D8DC;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 8px;
     -fx-font-size: 14px;
+}
+.campo-texto:focused {
+    -fx-border-color: #3498DB; /* Borda azul ao clicar */
+}
+
+/* Estilo Base para todos os Botões (com sombreado) */
+.button {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+    -fx-background-radius: 6px;
+    -fx-padding: 8px 15px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 4, 0, 0, 2);
+}
+
+/* Cores de contraste para cada botão específico */
+.btn-adicionar {
+    -fx-background-color: #2ECC71; /* Verde Esmeralda */
+}
+.btn-adicionar:hover { -fx-background-color: #27AE60; } /* Cor ao passar o rato */
+
+.btn-buscar {
+    -fx-background-color: #3498DB; /* Azul Vibrante */
+}
+.btn-buscar:hover { -fx-background-color: #2980B9; }
+
+.btn-neutro {
+    -fx-background-color: #95A5A6; /* Cinzento Elegante */
+}
+.btn-neutro:hover { -fx-background-color: #7F8C8D; }
+
+.btn-remover {
+    -fx-background-color: #E74C3C; /* Vermelho Coral */
+}
+.btn-remover:hover { -fx-background-color: #C0392B; }
+
+/* Estilização da Tabela */
+.tabela-estilizada {
+    -fx-font-size: 14px;
+    -fx-background-radius: 5px;
+    -fx-border-color: #E0E0E0;
+    -fx-border-radius: 5px;
+}
+.tabela-estilizada .column-header {
+    -fx-background-color: #EAEDED;
+    -fx-font-weight: bold;
+}
+.tabela-estilizada .table-row-cell:odd {
+    -fx-background-color: #F9F9F9; /* Efeito zebrado (linhas ímpares) */
+}
+.tabela-estilizada .table-row-cell:even {
+    -fx-background-color: #FFFFFF; /* Efeito zebrado (linhas pares) */
+}
+.tabela-estilizada .table-row-cell:selected {
+    -fx-background-color: #D6EAF8; /* Azul pastel ao selecionar uma linha */
+    -fx-text-fill: #2C3E50;
 }
