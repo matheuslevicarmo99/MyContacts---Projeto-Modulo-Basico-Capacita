@@ -39,7 +39,7 @@ Um sistema interativo de gestão de contactos com **Interface Gráfica (JavaFX)*
 2. Abra o projeto na sua IDE de preferência e aguarde que o Maven descarregue todas as dependências do `pom.xml`.
 3. Localize o ficheiro principal de execução no seguinte caminho: `src/mycontacts/app/Main.java`.
 4. Execute a classe principal (No IntelliJ, abra a classe `Main` e clique no botão ▶️ verde ou prima `Shift + F10`).
-5. Interaja com o sistema! A interface gráfica irá abrir, gerando automaticamente a base de dados na raiz do projeto, e já poderá adicionar e gerir os seus contactos.
+5. Interaja com o sistema! A interface gráfica irá abrir, gerando automaticamente a base de dados na raiz do projeto, e já poderá adicionar e gerir os seus contatos. (Recomendado deixar em tela cheia pra melhor visualização)
 
 ---
 
